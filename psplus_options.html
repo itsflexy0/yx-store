@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your PlayStation Plus Subscription</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            position: relative;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-image: url("file:///J:/YX/ps-plus-logo-with-black-background.avif");
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #fff; /* Change text color to white */
+        }
+        h1 {
+            text-align: center;
+            color: #fff; /* Change heading color to white */
+        }
+        .subscription {
+            margin-bottom: 20px;
+        }
+        .subscription-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Change border color to white with opacity */
+        }
+        .subscription-item:last-child {
+            border-bottom: none;
+        }
+        .subscription-item h2 {
+            margin: 0;
+            color: #fff; /* Change text color to white */
+        }
+        .subscription-item p {
+            margin: 5px 0;
+            color: #ccc; /* Change text color to light grey */
+        }
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="subscription-item">
+        <div>
+            <h2>Total Items in Cart:</h2>
+            <p id="cartItems">0</p>
+        </div>
+        <a href="#" class="btn" onclick="viewCart()">View Cart</a>
+    </div>
+    <h1>Choose Your PlayStation Plus Subscription</h1>
+    <div class="subscription">
+        <div class="subscription-item">
+            <div>
+                <h2>1 Month Subscription</h2>
+                <p>Price: $XX.XX</p>
+            </div>
+            <a href="#" class="btn" onclick="addToCart('1 Month Subscription')">Add to Cart</a>
+        </div>
+        <div class="subscription-item">
+            <div>
+                <h2>3 Months Subscription</h2>
+                <p>Price: $XX.XX</p>
+            </div>
+            <a href="#" class="btn" onclick="addToCart('3 Months Subscription')">Add to Cart</a>
+        </div>
+        <div class="subscription-item">
+            <div>
+                <h2>1 Year Subscription</h2>
+                <p>Price: $XX.XX</p>
+            </div>
+            <a href="#" class="btn" onclick="addToCart('1 Year Subscription')">Add to Cart</a>
+        </div>
+    </div>
+    <div class="checkout-btn">
+        <a href="tagroba.html" class="btn">Checkout</a>
+    </div>
+</div>
+
+<script>
+    let cart = [];
+
+    function addToCart(item) {
+        cart.push(item);
+        updateCartCount();
+        alert("Item added to your cart!");
+    }
+
+    function updateCartCount() {
+        document.getElementById("cartItems").textContent = cart.length;
+    }
+
+    function viewCart() {
+        if (cart.length === 0) {
+            alert("Your cart is empty!");
+        } else {
+            let cartItems = "Items in Your Cart:\n";
+            cart.forEach(function(item, index) {
+                cartItems += (index + 1) + ". " + item + "\n";
+            });
+            alert(cartItems);
+        }
+    }
+</script>
+
+</body>
+</html>

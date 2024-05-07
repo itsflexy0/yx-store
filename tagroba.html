@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Method</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            text-align: center;
+            margin-top: 20px;
+        }
+        label {
+            margin-right: 10px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Select Payment Method</h2>
+        <form id="paymentForm">
+            <label for="telda"><input type="radio" id="telda" name="paymentMethod" value="telda"> Telda (@youssefmoussa0)</label><br>
+            <label for="vodafoneCash"><input type="radio" id="vodafoneCash" name="paymentMethod" value="vodafoneCash"> Vodafone Cash (01016824985)</label><br>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="message" class="message" style="display: none;"></div>
+    </div>
+
+    <script>
+        document.getElementById("paymentForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+            var message = "Thank you for ordering with YX store! Our agents will contact you within 1-2 hours.";
+            
+            // Display the message
+            document.getElementById("message").textContent = message;
+            document.getElementById("message").style.display = "block";
+        });
+    </script>
+
+</body>
+</html>
+
+
